@@ -3,4 +3,5 @@ export interface CreateCampaignDTO {
     dataInicio:Date
     dataFim: Date
     categoria: string
+    status?: string
 }
