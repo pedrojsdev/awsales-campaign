@@ -33,7 +33,7 @@ export class CampaignService {
 
         const existingCampaign = await this.campaignRepository.findById(id)
         if(!existingCampaign) {
-            throw new Error("Campanha não encontrada")
+            throw new Error("Campanha não encontrada.")
         }
 
         if(data.dataInicio && data.dataInicio < now) {
