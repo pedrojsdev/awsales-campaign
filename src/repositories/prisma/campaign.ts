@@ -4,8 +4,8 @@ import { CreateCampaignDTO } from "../../dtos/createCampaign";
 import { CampaignRepository } from "../campaignRepository";
 
 export class PrismaCampaignRepository implements CampaignRepository{
-    async create(data: CreateCampaignDTO): Promise<void> {
-        await prisma.campaign.create({
+    async create(data: CreateCampaignDTO): Promise<Campaign> {
+        return await prisma.campaign.create({
             data: {
                 nome: data.nome,
                 categoria: data.categoria,

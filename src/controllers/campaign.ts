@@ -6,8 +6,8 @@ export class CampaignController {
 
     async create(req: Request, res: Response): Promise<Response> {
         try {
-            await this.campaignService.createCampaign(req.body)
-            return res.status(201).send()
+            const campaign = await this.campaignService.createCampaign(req.body)
+            return res.status(201).json(campaign)
         } catch (error: any) {
             return res.status(400).json({ message: error.message })
         }

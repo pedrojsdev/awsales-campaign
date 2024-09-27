@@ -8,7 +8,7 @@ export class InMemoryCamapignRepository implements CampaignRepository {
     private campaigns: Campaign[] = [];
     private currentId: number = 1
 
-    async create(data: CreateCampaignDTO): Promise<void> {
+    async create(data: CreateCampaignDTO): Promise<Campaign> {
         const campaign: Campaign = {
             nome: data.nome,
             categoria: data.categoria,
@@ -19,6 +19,8 @@ export class InMemoryCamapignRepository implements CampaignRepository {
             dataCadastro: new Date()
         }
         this.campaigns.push(campaign)
+
+        return campaign
     }
 
     async findAll(): Promise<Campaign[]> {
