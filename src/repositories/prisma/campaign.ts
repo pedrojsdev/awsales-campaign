@@ -9,8 +9,8 @@ export class PrismaCampaignRepository implements CampaignRepository{
             data: {
                 nome: data.nome,
                 categoria: data.categoria,
-                dataFim: data.dataFim,
-                dataInicio: data.dataInicio,
+                dataFim: new Date(data.dataFim),
+                dataInicio: new Date(data.dataInicio),
                 status: data.dataFim < new Date() ? 'expirada' : 'ativa',
             }
         })

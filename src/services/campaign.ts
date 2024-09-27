@@ -7,11 +7,11 @@ export class CampaignService {
     async createCampaign(data: CreateCampaignDTO){
         const now = new Date()
         
-        if(data.dataInicio < now) {
+        if(new Date(data.dataInicio) < now) {
             throw new Error("A data de início deve ser igual ou posterior à data atual.")
         }
 
-        if(data.dataFim <= data.dataInicio) {
+        if(new Date(data.dataFim) <= data.dataInicio) {
             throw new Error("A data de fim deve ser maior que a data de início.")
         }
 
@@ -36,12 +36,12 @@ export class CampaignService {
             throw new Error("Campanha não encontrada.")
         }
 
-        if(data.dataInicio && data.dataInicio < now) {
+        if(data.dataInicio && new Date(data.dataInicio) < now) {
             throw new Error("A data de início deve ser igual ou posterior à data atual.")
         }
 
-        const newDataInicio = data.dataInicio ? data.dataInicio : existingCampaign.dataInicio
-        const newDataFim = data.dataFim ? data.dataFim : existingCampaign.dataFim
+        const newDataInicio = data.dataInicio ? new Date(data.dataInicio) : existingCampaign.dataInicio
+        const newDataFim = data.dataFim ? new Date(data.dataFim) : existingCampaign.dataFim
 
         if(newDataFim <= newDataInicio) {
             throw new Error("A data de fim deve ser maior que a data de início.")
