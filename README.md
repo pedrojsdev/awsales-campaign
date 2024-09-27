@@ -65,3 +65,5 @@ Para rodar os testes, utilize o comando:
 ```bash
 npm run test
 ```
+
+Arquivos com prefixo terminação .test.ts para testes unitários e .spec.ts para testes de integração.
