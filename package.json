@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.ts",
+    "coverage": "vitest --coverage",
     "build": "tsc",
     "test": "vitest --run",
     "test:watch": "vitest"
@@ -22,6 +23,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.2",
     "@types/supertest": "^6.0.2",
+    "@vitest/coverage-v8": "^2.1.1",
     "eslint": "^9.11.1",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
