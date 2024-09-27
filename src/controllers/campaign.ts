@@ -27,7 +27,7 @@ export class CampaignController {
         try {
             const campaign = await this.campaignService.getCampaignById(Number(id))
             if (!campaign) {
-                res.status(404).json({ message: "Campanha não encontrada." })
+                return res.status(404).json({ message: "Campanha não encontrada." })
             }
 
             return res.json(campaign)
