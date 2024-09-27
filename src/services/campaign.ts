@@ -11,7 +11,7 @@ export class CampaignService {
             throw new Error("A data de início deve ser igual ou posterior à data atual.")
         }
 
-        if(new Date(data.dataFim) <= data.dataInicio) {
+        if(new Date(data.dataFim) <= new Date(data.dataInicio)) {
             throw new Error("A data de fim deve ser maior que a data de início.")
         }
 
