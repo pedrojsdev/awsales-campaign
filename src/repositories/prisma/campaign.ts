@@ -24,8 +24,8 @@ export class PrismaCampaignRepository implements CampaignRepository{
         return await prisma.campaign.findUnique({where: {id}})
     }
 
-    async update(id: number, data: Partial<CreateCampaignDTO>): Promise<void> {
-        await prisma.campaign.update({
+    async update(id: number, data: Partial<CreateCampaignDTO>): Promise<Campaign> {
+       return await prisma.campaign.update({
             where: {id},
             data
         })

@@ -40,8 +40,8 @@ export class CampaignController {
         const { id } = req.params
 
         try {
-            await this.campaignService.updateCampaign(Number(id), req.body)
-            return res.status(200).send()
+            const campaign = await this.campaignService.updateCampaign(Number(id), req.body)
+            return res.status(200).json(campaign)
         } catch (error: any) {
             if (error.message === 'Campanha não encontrada.') {
                 return res.status(404).json({ message: error.message })

@@ -30,7 +30,7 @@ export class InMemoryCamapignRepository implements CampaignRepository {
         const campaign = this.campaigns.find(c => c.id === id)
         return campaign || null
     }
-    async update(id: number, data: Partial<CreateCampaignDTO>): Promise<void> {
+    async update(id: number, data: Partial<CreateCampaignDTO>): Promise<Campaign> {
         const campaignIndex = this.campaigns.findIndex(c => c.id === id)
 
         if (campaignIndex === -1) {
@@ -43,6 +43,8 @@ export class InMemoryCamapignRepository implements CampaignRepository {
         }
 
         this.campaigns[campaignIndex] = updatedCampaign
+
+        return updatedCampaign
     }
 
 }

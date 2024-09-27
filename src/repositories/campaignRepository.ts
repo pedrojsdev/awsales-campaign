@@ -5,5 +5,5 @@ export interface CampaignRepository {
     create(data: CreateCampaignDTO): Promise<Campaign>
     findAll(): Promise<Campaign[]>
     findById(id: number): Promise<Campaign | null>
-    update(id: number, data: Partial<CreateCampaignDTO>): Promise<void>
+    update(id: number, data: Partial<CreateCampaignDTO>): Promise<Campaign>
 }
