@@ -33,10 +33,6 @@ export class InMemoryCamapignRepository implements CampaignRepository {
     async update(id: number, data: Partial<CreateCampaignDTO>): Promise<Campaign> {
         const campaignIndex = this.campaigns.findIndex(c => c.id === id)
 
-        if (campaignIndex === -1) {
-            throw new Error("Campanha não encontrada.")
-        }
-
         const updatedCampaign = {
             ...this.campaigns[campaignIndex],
             ...data
