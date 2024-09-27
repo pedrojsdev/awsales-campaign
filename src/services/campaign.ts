@@ -40,8 +40,8 @@ export class CampaignService {
             throw new Error("A data de início deve ser igual ou posterior à data atual.")
         }
 
-        const newDataInicio = data.dataInicio ? new Date(data.dataInicio) : existingCampaign.dataInicio
-        const newDataFim = data.dataFim ? new Date(data.dataFim) : existingCampaign.dataFim
+        const newDataInicio = data.dataInicio ? new Date(data.dataInicio) : new Date(existingCampaign.dataInicio)
+        const newDataFim = data.dataFim ? new Date(data.dataFim) : new Date(existingCampaign.dataFim)
 
         if(newDataFim <= newDataInicio) {
             throw new Error("A data de fim deve ser maior que a data de início.")
