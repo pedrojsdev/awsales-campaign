@@ -58,7 +58,7 @@ export class CampaignService {
     async deleteCampaign(id: number) {
         const existingCampaign = await this.campaignRepository.findById(id)
         if(!existingCampaign) {
-            throw new Error("Campanha não encontrada")
+            throw new Error("Campanha não encontrada.")
         }
 
         return await this.campaignRepository.update(id, {
